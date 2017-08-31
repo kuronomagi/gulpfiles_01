@@ -1,0 +1,11 @@
+node_modules/
+
+# General
+*.DS_Store
+.AppleDouble
+.LSOverride
+.package-lock.json
+
+# Thumbnails
+._*
+
