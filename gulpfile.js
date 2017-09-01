@@ -5,9 +5,9 @@ var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 var spritesmith = require('gulp.spritesmith');
 var webserver = require('gulp-webserver');
-var cssmin = require('gulp-cssmin');
-var uglify = require('gulp-uglify');
-var imagemin = require('gulp-imagemin');
+var cssmin = require('gulp-cssmin'); //css圧縮
+var uglify = require('gulp-uglify'); //js圧縮
+var imagemin = require('gulp-imagemin'); //画像圧縮
 var imageminGuetzli = require('imagemin-guetzli');
 var browserify = require('browserify');
 var watchify = require('watchify');
@@ -43,10 +43,13 @@ gulp.task('sprite', function () {
         cssFormat: 'scss',
         cssVarMap: function (sprite) {
             sprite.name = 'sprite-' + sprite.name;
-        }
+        }//,
+        // retinaSrcFilter: 'src/spriteimg/*.png', //Retinaに対応する場合
+        // retinaImgName: 'sprite@2x.png',
+        // retinaImgPath: 'img/sprite@2x.png'
     }));
     spriteItem.img.pipe(gulp.dest('dist/img/')); //imgNameで指定したスプライト画像の保存先
-    spriteItem.css.pipe(gulp.dest('src/sass/')); //cssNameで指定したcssの保存先
+    spriteItem.css.pipe(gulp.dest('src/sass/')); //cssNameで指定したcssの保存先 mixinで使いたい箇所で呼び出す
 });
 
 gulp.task('browserify', function() {
@@ -113,7 +116,7 @@ gulp.task('imgmin', function () {
     .pipe(gulp.dest('dist/img'))
 });
 
-gulp.task('release', [
+gulp.task('build', [
   'cssmin',
   'imgmin', 
   'uglify'
@@ -130,3 +133,8 @@ gulp.task('webserver', function() {
       open: false
     }));
 });
+
+
+//https://tech.recruit-mp.co.jp/front-end/post-6844/
+//https://liginc.co.jp/web/html-css/html/144170
+//http://qiita.com/harapeko_wktk/items/a9446efce650b7fcc276
