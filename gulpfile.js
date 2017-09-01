@@ -9,8 +9,8 @@ var cssmin = require('gulp-cssmin'); //css圧縮
 var uglify = require('gulp-uglify'); //js圧縮
 var imagemin = require('gulp-imagemin'); //画像圧縮
 var pngquant = require('imagemin-pngquant'); //圧縮率用
-var mozjpeg  = require('imagemin-mozjpeg'); //画像圧縮用
-var browserify = require('browserify');
+var mozjpeg  = require('imagemin-mozjpeg'); //圧縮率用
+var browserify = require('browserify'); //読み込むJSファイルが増える(main.js が動作するのに必要な外部ファイル(jquery.js)があり、それらをどういった順序で読み込めばよいのかというのを解決する)
 var watchify = require('watchify');
 
 gulp.task('ejs', function() {
@@ -115,29 +115,32 @@ gulp.task('imgmin', function () {
     .pipe(gulp.dest('dist/images'))
 });
 
-// ウォッチタスク ejs/sass/jsが保存されると自動でコンパイル
+// 参照・ライブリロード用WEBサーバ
+gulp.task('webserver', function() {
+  gulp.src('dist/')
+    .pipe(webserver({
+        host: '127.0.0.1',
+        port: 80,
+        livereload: true,
+    }));
+});
+
+
+// デフォルトタスク
 gulp.task('default', [
     'ejs',
     'cssmin',
     'imgmin', 
-    'uglify'
+    'uglify',
+    'webserver'
 ], function() {
     gulp.watch(['src/ejs/**/*.ejs', 'src/ejs/*.ejs', '!src/ejs/common/_*.ejs'], ['ejs']);
     gulp.watch(['src/sass/*.scss', 'src/sass/**/*.scss'], ['sass']);
     gulp.watch(['src/js/main.js'], ['watchify']);
 });
 
-// 参照・ライブリロード用WEBサーバ
-gulp.task('webserver', function() {
-  gulp.src('dist/')
-    .pipe(webserver({
-      livereload: true,
-      directoryListing: true,
-      open: false
-    }));
-});
-
-
 //https://tech.recruit-mp.co.jp/front-end/post-6844/
 //https://liginc.co.jp/web/html-css/html/144170
 //http://qiita.com/harapeko_wktk/items/a9446efce650b7fcc276
+//http://blog.tsumikiinc.com/article/20150226_gulp-imagemin.html    
+//https://tech.recruit-mp.co.jp/front-end/getting-started-gulp-browserify/
