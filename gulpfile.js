@@ -144,3 +144,13 @@ gulp.task('default', [
 //http://qiita.com/harapeko_wktk/items/a9446efce650b7fcc276
 //http://blog.tsumikiinc.com/article/20150226_gulp-imagemin.html    
 //https://tech.recruit-mp.co.jp/front-end/getting-started-gulp-browserify/
+
+
+
+
+//https://www.nxworld.net/services-resource/gulp-task-example-for-beginners.html
+//https://blog.mismithportfolio.com/web/20160911postcss
+//https://whiskers.nukos.kitchen/2014/12/07/gulp-require-dir.html
+//http://be-into.com/blog/web/how-to-modify-each-file-output-destination-in-gulp/
+//http://qiita.com/harapeko_wktk/items/a9446efce650b7fcc276
+
