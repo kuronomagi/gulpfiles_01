@@ -8,7 +8,8 @@ var webserver = require('gulp-webserver');
 var cssmin = require('gulp-cssmin'); //css圧縮
 var uglify = require('gulp-uglify'); //js圧縮
 var imagemin = require('gulp-imagemin'); //画像圧縮
-var imageminGuetzli = require('imagemin-guetzli');
+var pngquant = require('imagemin-pngquant'); //圧縮率用
+var mozjpeg  = require('imagemin-mozjpeg'); //画像圧縮用
 var browserify = require('browserify');
 var watchify = require('watchify');
 
@@ -39,16 +40,16 @@ gulp.task('sprite', function () {
     .pipe(spritesmith({
         imgName: 'sprite.png',
         cssName: '_sprite.scss',
-        imgPath: 'img/sprite.png',
+        imgPath: 'images/sprite.png',
         cssFormat: 'scss',
         cssVarMap: function (sprite) {
             sprite.name = 'sprite-' + sprite.name;
         }//,
         // retinaSrcFilter: 'src/spriteimg/*.png', //Retinaに対応する場合
         // retinaImgName: 'sprite@2x.png',
-        // retinaImgPath: 'img/sprite@2x.png'
+        // retinaImgPath: 'images/sprite@2x.png'
     }));
-    spriteItem.img.pipe(gulp.dest('dist/img/')); //imgNameで指定したスプライト画像の保存先
+    spriteItem.img.pipe(gulp.dest('dist/images/')); //imgNameで指定したスプライト画像の保存先
     spriteItem.css.pipe(gulp.dest('src/sass/')); //cssNameで指定したcssの保存先 mixinで使いたい箇所で呼び出す
 });
 
@@ -82,21 +83,6 @@ function jscompile(is_watch) {
     return rebundle();
 }
 
-// ウォッチタスク ejs/sass/jsが保存されると自動でコンパイル
-gulp.task('default', [
-    'ejs',
-    'cssmin',
-    'imgmin', 
-    'uglify'
-], function() {
-    gulp.watch(['src/ejs/**/*.ejs', 'src/ejs/*.ejs', '!src/ejs/common/_*.ejs'], ['ejs']);
-    gulp.watch(['src/sass/*.scss', 'src/sass/**/*.scss'], ['sass']);
-    gulp.watch(['src/js/main.js'], ['watchify']);
-});
-
-
-
-
 // リリース用　画像圧縮、css/js難読化
 gulp.task('cssmin', function () {
     return gulp.src('dist/css/*.css')
@@ -111,17 +97,34 @@ gulp.task('uglify', function() {
 });
 
 gulp.task('imgmin', function () {
-    return gulp.src('dist/img/*')
-    .pipe(imagemin([imageminGuetzli()]))
-    .pipe(gulp.dest('dist/img'))
+    return gulp.src('src/images/*')
+    .pipe(imagemin([
+      pngquant({
+        quality: '70-80',
+        speed: 1,
+        floyd: 0
+    }),
+    mozjpeg({ 
+        quality: 80,
+        progressive: true
+    }),
+      imagemin.svgo(),
+      imagemin.optipng(),
+      imagemin.gifsicle()
+    ]))
+    .pipe(gulp.dest('dist/images'))
 });
 
-gulp.task('build', [
-  'cssmin',
-  'imgmin', 
-  'uglify'
+// ウォッチタスク ejs/sass/jsが保存されると自動でコンパイル
+gulp.task('default', [
+    'ejs',
+    'cssmin',
+    'imgmin', 
+    'uglify'
 ], function() {
-    return gulp.src(['dist/css/*.css', 'dist/img/*', 'dist/js/*.js']);
+    gulp.watch(['src/ejs/**/*.ejs', 'src/ejs/*.ejs', '!src/ejs/common/_*.ejs'], ['ejs']);
+    gulp.watch(['src/sass/*.scss', 'src/sass/**/*.scss'], ['sass']);
+    gulp.watch(['src/js/main.js'], ['watchify']);
 });
 
 // 参照・ライブリロード用WEBサーバ

@@ -21,6 +21,8 @@
     "gulp-webserver": "^0.9.1",
     "gulp.spritesmith": "^6.4.0",
     "imagemin-guetzli": "^0.1.5",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-pngquant": "^5.0.1",
     "watchify": "^3.9.0"
   }
 }
