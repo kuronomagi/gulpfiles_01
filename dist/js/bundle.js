@@ -1,10 +1,1 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var sub = require('./sub.js');
-sub('helaao, woarld');
-
-
-},{"./sub.js":2}],2:[function(require,module,exports){
-module.exports = function(message) {
-  alert(message);
-};
-},{}]},{},[1]);
+$(document).ready(function(){$(".slider-for").slick({slidesToShow:1,slidesToScroll:1,arrows:!1,fade:!1,asNavFor:".slider-nav"}),$(".slider-nav").slick({slidesToShow:4,slidesToScroll:1,asNavFor:".slider-for",dots:!1,centerMode:!0,focusOnSelect:!0,vertical:!0,arrows:!0,prevArrow:$(".slick-prev"),nextArrow:$(".slick-next"),responsive:[{breakpoint:768,settings:{centerMode:!0,vertical:!1}}]})});
