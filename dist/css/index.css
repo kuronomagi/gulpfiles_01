@@ -1,0 +1,11 @@
+a {
+    color: #fff;
+}@media all and (min-width: 769px) {
+    p {
+        border: 10px solid #000;
+    }
+}@media all and (max-width: 768px) {
+    p {
+        border: 5px solid #000;
+    }
+}

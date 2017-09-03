@@ -1,2 +1,3 @@
 var sub = require('./sub.js');
-sub('hello, world');
+sub('helaao, woarld');
+

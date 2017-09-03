@@ -1,0 +1,32 @@
+@custom-media --PC-grobal-nav all and (min-width: 768px) and (max-width: 1423px);
+@custom-media --SP all and (max-width: 768px);
+@custom-media --PC all and (min-width: 769px);
+
+$contentsWidth: 1366px;
+$contentsMinWidth: 1024px;
+$baseColorGreen: #40b8b1;
+
+@define-mixin pcWidthLiquid {
+    max-width: $contentsWidth;
+    min-width: $contentsMinWidth;
+    margin: 0 auto;
+}
+@define-mixin pcWidthFixed {
+    width: $contentsMinWidth;
+    margin: 0 auto;
+}
+@define-mixin flex $value {
+    display: flex;
+    justify-content: $value;
+    flex-wrap: nowrap;
+}
+@define-mixin displayAbsolute {
+    content: "";
+    display: block;
+    position: absolute;
+}
+@define-mixin clearfix {
+    content: "";
+    display: block;
+    clear: both;
+}

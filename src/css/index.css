@@ -1,0 +1,14 @@
+@import "_mixin.css";
+
+p {
+
+    @media (--PC) {
+        border: 10px solid #000;
+    }
+    @media (--SP) {
+        border: 5px solid #000;
+    }
+}
+a {
+    color: #fFF;
+}

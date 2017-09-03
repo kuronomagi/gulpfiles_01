@@ -1,0 +1,107 @@
+@import "_mixin.css";
+/*-------------------------------------------
+
+Base Setting
+
+-------------------------------------------*/
+html {
+  font-size: 62.5%;
+}
+body,
+select,
+input,
+textarea,
+button { 
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "YuGothic M", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
+  color: #333;
+  font-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  @media (--PC) {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  @media (--SP) {
+    font-size: 13px;
+    line-height: 1.57;
+  }
+}
+body { 
+  word-break: break-all;
+  @media (--PC) {
+    min-width: 1024px;
+  }
+  @media (--SP) {
+    min-width: 320px;
+  }
+  &.is-fixed {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+a {
+  color: #fff;
+  cursor: pointer;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: none;
+}
+main a {
+  transition: opacity .3s ease-out;
+  @media (--PC) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+img {
+  vertical-align: middle;
+}
+caption {
+  margin-bottom: 5px;
+  text-align: left;
+}
+textarea {
+  resize: vertical;
+}
+address {
+  font-style: normal;
+}
+em {
+  font-style: normal;
+}
+strong {
+  font-weight: normal; 
+}
+legend {
+  display: none;
+}
+table {
+  text-align: left;
+  font-weight: normal;
+}
+th,
+td {
+  font-weight: normal;
+}
+p > img {
+  vertical-align: middle;
+}
+ol,
+li {
+  list-style: none;
+}
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  outline: none;
+}
