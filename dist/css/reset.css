@@ -1,1 +1,254 @@
-a,hr{padding:0}a,button,input,select,textarea{margin:0}button,img{max-width:100%}abbr,address,b,blockquote,body,body div,caption,cite,code,dd,del,dfn,dl,dt,em,fieldset,form,h1,h2,h3,h4,h5,h6,html,i,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,samp,small,span,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,ul,var{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:0 0}input,select,td,td img,th{vertical-align:top}img,input[type=checkbox]{vertical-align:bottom}html{overflow-y:scroll}ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}a{font-size:100%;vertical-align:baseline;background:0 0}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help}th{font-weight:700}td{font-weight:400}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0}pre{white-space:pre;white-space:pre-wrap;white-space:pre-line;word-wrap:break-word}input[type=radio]{vertical-align:text-bottom}input,select,textarea{font:99% sans-serif}table{border-collapse:collapse;border-spacing:0;font:100%}a:active,a:hover{outline:0}sub,sup{font-size:85%;line-height:0;position:relative}sup{top:-.5em}sub{bottom:-.25em}code,kbd,pre,samp{font-family:monospace,sans-serif}.clickable,button,input[type=button],input[type=submit],label{cursor:pointer}button{width:auto;overflow:visible}h1,h2,h3,h4,h5,h6{font-weight:400}.clear:after,.clear:before{content:" ";display:table}.clear:after{clear:both}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}
+/*-------------------------------------------
+
+Reset
+
+-------------------------------------------*/
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+img {
+    max-width: 100%;
+}
+html {
+    overflow-y: scroll;
+}
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+del {
+    text-decoration: line-through;
+}
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted #000;
+    cursor: help;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th {
+    font-weight: bold;
+    vertical-align: top;
+}
+td {
+    font-weight: normal;
+    vertical-align: top;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+input,
+select {
+    vertical-align: top;
+}
+pre {
+    white-space: pre;
+    /* CSS2 */
+    white-space: pre-wrap;
+    /* CSS 2.1 */
+    white-space: pre-line;
+    /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word;
+    /* IE */
+}
+input[type="radio"] {
+    vertical-align: text-bottom;
+}
+input[type="checkbox"] {
+    vertical-align: bottom;
+    *vertical-align: baseline;
+}
+select,
+input,
+textarea {
+    font: 99% sans-serif;
+}
+table {
+    font-size: inherit;
+    font: 100%;
+}
+a:hover,
+a:active {
+    outline: none;
+}
+td,
+td img {
+    vertical-align: top;
+}
+sub,
+sup {
+    font-size: 85%;
+    line-height: 0;
+    position: relative;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace, sans-serif;
+}
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+button {
+    cursor: pointer;
+}
+button,
+input,
+select,
+textarea {
+    margin: 0;
+}
+button {
+    width: auto;
+    overflow: visible;
+    max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+img {
+    vertical-align: bottom;
+}
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+.clear:after {
+    clear: both;
+}
+.clear {
+    *zoom: 1;
+}
+/*-------------------------------------------
+
+Normalize
+
+-------------------------------------------*/
+/*-------------------------------------------
+HTML5 display definitions
+-------------------------------------------*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+[hidden],
+template {
+    display: none;
+}
