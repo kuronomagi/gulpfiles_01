@@ -214,3 +214,13 @@ gulp.task('release', [
 
 
 //https://github.com/nayucolony/boiler-plate
+
+
+
+//画像のサイズ
+//http://be-into.com/blog/web/use-postcss-assets-through-sass/
+
+//fontサイズ
+//http://qiita.com/katsunory/items/3bede89cee8e2ded8426
+
+
